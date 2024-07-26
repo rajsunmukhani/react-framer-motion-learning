@@ -85,3 +85,135 @@ Step 2: we can now simply use the animation just by using the variant prop or at
 
 ## NOTE : Don't forget to make position of box absolute.
 To use percentage in array write them in inverted quotes as : '50%' or "50%" to undertake animation
+
+***drag* keyword can be used as prop to fix the div wtih mouse to click and move as:**
+
+import { anticipate, motion } from 'framer-motion'
+import React from 'react'
+
+const App = () => {
+  
+  return (
+    <div id='main'>
+      <motion.div
+      drag
+      id="box">
+
+      </motion.div>
+    </div>
+  )
+}
+
+export default App
+
+***whileHover* keyword can be used to give animation while cursor hovers on the div**
+import { anticipate, motion } from 'framer-motion'
+import React from 'react'
+
+const App = () => {
+  
+  return (
+    <div id='main'>
+      <motion.div
+      whileHover={{
+        scale : 0.8,
+      }}
+      id="box">
+
+      </motion.div>
+    </div>
+  )
+}
+
+export default App
+
+
+***whileDrag* keyword can be used to give animation while cursor hovers on the div**
+## works only when drag also present
+
+import { anticipate, motion } from 'framer-motion'
+import React from 'react'
+
+const App = () => {
+  
+  return (
+    <div id='main'>
+      <motion.div
+      whileHover={{
+        scale : 0.8,
+      }}
+      drag
+      whileDrag={{
+        backgroundColor : 'royalblue'
+      }}
+      id="box">
+
+      </motion.div>
+    </div>
+  )
+}
+
+export default App
+
+## Now in drag we can see that the element gets far away on leaving the drag with speed to fix it we have a another prop named *dragConstraint* which helps in fixing limit for the movement of drag. As:
+
+import { anticipate, motion } from 'framer-motion'
+import React from 'react'
+
+const App = () => {
+  
+  return (
+    <div id='main'>
+      <motion.div
+      whileHover={{
+        scale : 0.8,
+      }}
+      drag
+      whileDrag={{
+        backgroundColor : 'royalblue'
+      }}
+      dragConstraints={{
+        top : 0,
+        left : 0,
+        right : 0
+      }}
+      id="box">
+
+      </motion.div>
+    </div>
+  )
+}
+
+export default App
+
+
+## Animation on the basis of button click: 
+    import { anticipate, motion } from 'framer-motion'
+import React, { useState } from 'react'
+
+const App = () => {
+  const [moveX, setMoveX] = useState(null)
+  const eventHandler = () => {
+    setMoveX(moveX + 200);
+  }
+  
+  return (
+    <div id='main'>
+      <motion.div
+      animate={{
+        x : moveX
+      }}
+      id="box">
+
+      </motion.div>
+      <button onClick={eventHandler}>click</button>
+    </div>
+  )
+}
+
+export default App
+
+
+## Scrolling on the basis of animation:
+
+use the predetermined function *useScroll* to get the animation on scroll and under it scrollYProgress gives the progress done under scrolling in y axis which will set the value of scaleX for nav classed div which has position to be fixed and transform origin 0.

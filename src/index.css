@@ -1,28 +1,25 @@
 *{
-   margin : 0;
-   padding: 0;
-   box-sizing : border-box;
-   font-family : Gilroy;
-   color: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
 }
 
 html,body{
-   height : 100%;
-   width : 100%;
-   background-color: #111;
+  height: 100%;
+  width: 100%;
 }
 
-#main{
-  padding: 20px;
+.nav{
+  height: 10px;
+  width: 100%;
+  background-color: yellow;
+  position: fixed;
+  transform-origin: 0;
 }
 
-#box{
-  height: 200px;
-  width: 200px;
-  background-color: red;
-  border-radius: 20px;
-  position: absolute;
+p{
+  font-size: 1.25vw;
 }
-
-
-
