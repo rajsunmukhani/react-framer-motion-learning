@@ -2,26 +2,23 @@ import { anticipate, motion } from 'framer-motion'
 import React from 'react'
 
 const App = () => {
-  const anim = {
-    hidden : {
-      x : 10,
-      y : 50,
-      scale : 0,
-    },
-    visible : {
-      x : 350,
-      y : 100,
-      scale : 1,
-      rotate : '360deg'
-    }
-  }
+  
   return (
     <div id='main'>
       <motion.div
-      initial="hidden"
-      animate="visible"
-      transition={{ duration: 1,delay : 2, ease: anticipate }}
-      variants={anim}
+      initial = {{
+        top : 0,
+        left : 0
+      }}
+      animate ={{
+        top : [0,300,0,300,600],
+        left : [0,400,800,400,400]
+      }}
+      transition={{
+        duration : 2,
+        delay : 1,
+        ease : anticipate
+      }}
       id="box">
 
       </motion.div>

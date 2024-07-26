@@ -17,3 +17,71 @@ Step 1: we define a animation with our own named variable and inside it we defin
 Step 2: we can now simply use the animation just by using the variant prop or attribute with animate and initial prop directly in the animating element.
 
 # Note : this time the animate and initial will hold the data in '' or "" and not in {{}};
+
+## multi movements in one code : 
+    'Z' pattern
+
+            import { anticipate, motion } from 'framer-motion'
+            import React from 'react'
+
+            const App = () => {
+            
+            return (
+                <div id='main'>
+                <motion.div
+                initial = {{
+                    top : 0,
+                    left : 0
+                }}
+                animate ={{
+                    top : [0,0,600,600],
+                    left : [0,500,0,500]
+                }}
+                transition={{
+                    duration : 2,
+                    delay : 1,
+                    ease : anticipate
+                }}
+                id="box">
+
+                </motion.div>
+                </div>
+            )
+            }
+
+            export default App
+
+    Y pattern
+
+            import { anticipate, motion } from 'framer-motion'
+            import React from 'react'
+
+            const App = () => {
+            
+            return (
+                <div id='main'>
+                <motion.div
+                initial = {{
+                    top : 0,
+                    left : 0
+                }}
+                animate ={{
+                    top : [0,300,0,300,600],
+                    left : [0,400,800,400,400]
+                }}
+                transition={{
+                    duration : 2,
+                    delay : 1,
+                    ease : anticipate
+                }}
+                id="box">
+
+                </motion.div>
+                </div>
+            )
+            }
+
+            export default App
+
+## NOTE : Don't forget to make position of box absolute.
+To use percentage in array write them in inverted quotes as : '50%' or "50%" to undertake animation
